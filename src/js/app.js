@@ -10,14 +10,16 @@
 
 export default function exportCards(object) {
   const { special: card } = object;
-
+  const newCard = [];
   for (let i = 0; i < card.length; i++) {
     if ('description' in card[i]) {
+      newCard.push(card[i]);
       continue;
     } else {
-      card[i].description = 'Описание недоступно';
+      newCard.push(card[i]);
+      newCard[i].description = 'Описание недоступно';
     }
   }
 
-  return card;
+  return newCard;
 }
